@@ -1,0 +1,34 @@
+.card {
+  color: whitesmoke;
+  background-color: cadetblue;
+  text-align: center;
+  max-width: 500px;
+  position: relative;
+  left: 50vh;
+  top: 150px;
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: 30px;
+}
+
+.card input {
+  border-radius: 5px;
+  border: 0;
+  font-size: 25px;
+}
+
+.card button {
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.card p {
+  text-align: left;
+  margin-left: 30px;
+  padding: 10px;
+}
