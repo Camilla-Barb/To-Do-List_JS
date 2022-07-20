@@ -6,14 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="app.js"></script>
   </head>
   <body>
     <div class="card">
       <h2>To Do List</h2>
-      <input type="text" placeholder="Add your task here" />
-      <button>Add</button>
+      <br />
+      <input
+        id="myText"
+        type="text"
+        value=""
+        placeholder="Add here your task"
+      />
+      <button id="addTask">Add</button>
       <p>Your tasks:</p>
+      <div class="tasks">
+        <ul id="tasks-list">
+          <li>Gym <button>Done</button></li>
+          <li>Shopping <button>Done</button></li>
+          <li>Visit <button>Done</button></li>
+          <li>Organize <button>Done</button></li>
+        </ul>
+      </div>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>

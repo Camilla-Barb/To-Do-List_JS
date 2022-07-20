@@ -1,15 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .card {
   color: whitesmoke;
   background-color: cadetblue;
   text-align: center;
   max-width: 500px;
   position: relative;
-  left: 50vh;
   top: 150px;
+  left: 80px;
   border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .card h2 {
+  padding-top: 20px;
   font-size: 30px;
 }
 
@@ -27,8 +35,42 @@
   margin-left: 10px;
 }
 
+/* .card button:hover {
+  color: black;
+  background-color: gray;
+  transition: 0.5s;
+} */
+
 .card p {
   text-align: left;
+  font-size: 20px;
   margin-left: 30px;
   padding: 10px;
+}
+
+.tasks li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasks ul li {
+  font-size: 20px;
+  list-style: none;
+  background-color: #ccc;
+  padding: 15px;
+}
+
+ul#tasks-list {
+  max-width: 500px;
+  padding: 0;
+}
+
+.checked {
+  color: whitesmoke;
+  background-color: gray;
+}
+
+.hidden {
+  display: none;
 }
