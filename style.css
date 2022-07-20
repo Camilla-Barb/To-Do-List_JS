@@ -71,6 +71,6 @@ ul#tasks-list {
   background-color: gray;
 }
 
-.hidden {
+ul li.hidden {
   display: none;
 }

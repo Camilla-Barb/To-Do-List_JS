@@ -4,12 +4,51 @@ const addTasks = () => {
 
   const clickAdd = () => {
     const inputText = document.getElementById("myText").value;
-    const task = document.createElement("li");
-    task.innerHTML = inputText + `<button>Done</button>`;
-    document.getElementById("tasks-list").appendChild(task);
+    if (document.getElementById("myText").value.length == 0) {
+      alert("Please enter a task");
+    } else {
+      const newTask = document.createElement("li");
+      newTask.innerHTML = inputText + `<button class = "delete">Done</button>`;
+      document.getElementById("tasks-list").appendChild(newTask);
+      console.log(newTask.innerHTML);
+    }
   };
   btnAdd?.addEventListener("click", clickAdd);
 };
+
+const deleteTask = document.querySelectorAll("button.delete");
+for (let i = 0; i < deleteTask.length; i++) {
+  deleteTask[i].addEventListener("click", function () {
+    this.parentNode.remove();
+  });
+}
+
+// const closeBtn = (e) => {
+//   if (e.currentTarget.classList.contains("checked")) {
+//     // checked => devo cancellare la task
+//     // const allTasks = [...document.querySelectorAll("li")];
+//     const newDoneBtn = [...document.querySelectorAll(".delete")];
+//     // allTasks.forEach((el) => el.setAttribute("class", "hidden"));
+//     // allTasks.forEach((el) => e.parentNode.remove());
+//     newDoneBtn.forEach(
+//       (el) =>
+//         function () {
+//           this.parentNode.remove();
+//         }
+//     );
+//   } else {
+//     e.currentTarget.classList.add("checked");
+//   }
+// };
+
+// const toggleItems = () => {
+//   // const allDoneBtn = [...document.querySelectorAll(".tasks button")];
+//   const newDoneBtn = [...document.querySelectorAll(".delete")];
+//   newDoneBtn.forEach((el) => el.addEventListener("click", closeBtn));
+//   // allDoneBtn.forEach((el) => el.addEventListener("click", closeBtn));
+// };
+
+// Seleziono task
 
 // const toggleItems = () => {
 //   const listItem = document.querySelector("ul");
@@ -24,35 +63,9 @@ const addTasks = () => {
 //   );
 // };
 
-// const closeBtn = () => {
-//   const btn = [...document.querySelectorAll("button#close")];
-//   console.log(btn);
-//   const item = [...document.getElementsByTagName("li")];
-//   console.log(item);
-//   item.forEach((el) => el.classList.remove("hidden"));
-//   item
-//     .filter((el) => el.button.id === el.currentTarget.button.id)
-//     .forEach((el) => el.classList.add("hidden"));
-//   btn.addEventListener("click", closeBtn);
-// };
-
-const closeBtn = (e) => {
-  if (e.currentTarget.classList.contains("checked")) {
-    e.currentTarget.classList.remove("checked");
-  } else {
-    e.currentTarget.classList.add("checked");
-  }
-};
-
-const toggleItems = () => {
-  const allDoneBtn = [...document.querySelectorAll("button")];
-  allDoneBtn.forEach((el) => el.addEventListener("click", closeBtn));
-};
-
 const init = async () => {
   addTasks();
-  toggleItems();
-  // closeBtn();
+  // toggleItems();
 };
 
 init();
