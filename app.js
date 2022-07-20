@@ -16,12 +16,25 @@ const addTasks = () => {
   btnAdd?.addEventListener("click", clickAdd);
 };
 
-const deleteTask = document.querySelectorAll("button.delete");
-for (let i = 0; i < deleteTask.length; i++) {
-  deleteTask[i].addEventListener("click", function () {
-    this.parentNode.remove();
-  });
-}
+const addChecked = (e) => {
+  if (e.currentTarget.classList.contains("checked")) {
+    const deleteTask = document.querySelectorAll("button.delete");
+    for (let i = 0; i < deleteTask.length; i++) {
+      deleteTask[i].addEventListener("click", function () {
+        this.parentNode.remove();
+      });
+    }
+  } else {
+    e.currentTarget.classList.add("checked");
+  }
+};
+
+const checkedDeleteBtn = () => {
+  const delTask = [...document.querySelectorAll("button.delete")];
+  delTask.forEach((el) => el.addEventListener("click", addChecked));
+  // delTask.forEach((el) => el.classList.add("checked"));
+};
+checkedDeleteBtn();
 
 // const closeBtn = (e) => {
 //   if (e.currentTarget.classList.contains("checked")) {
