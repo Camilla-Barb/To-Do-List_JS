@@ -9,24 +9,19 @@
     <script src="app.js" async defer></script>
   </head>
   <body>
-    <div class="card">
+    <div class="card-wrapper">
       <h2>To Do List</h2>
       <br />
       <input
-        id="myText"
+        class="myText"
         type="text"
         value=""
         placeholder="Add here your task"
       />
-      <button id="addTask">Add</button>
+      <button class="addTask">Add</button>
       <p>Your tasks:</p>
       <div class="tasks">
-        <ul id="tasks-list">
-          <li>Gym <button class="delete">Done</button></li>
-          <li>Shopping <button class="delete">Done</button></li>
-          <li>Visit <button class="delete">Done</button></li>
-          <li>Organize <button class="delete">Done</button></li>
-        </ul>
+        <ul class="item-list"></ul>
       </div>
     </div>
   </body>

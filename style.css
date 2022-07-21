@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.card {
+.card-wrapper {
   color: whitesmoke;
   background-color: cadetblue;
   text-align: center;
@@ -16,18 +16,18 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.card h2 {
+.card-wrapper h2 {
   padding-top: 20px;
   font-size: 30px;
 }
 
-.card input {
+.card-wrapper input {
   border-radius: 5px;
   border: 0;
   font-size: 25px;
 }
 
-.card button {
+.card-wrapper button {
   font-size: 20px;
   border: 0;
   border-radius: 5px;
@@ -41,18 +41,18 @@
   transition: 0.5s;
 } */
 
-.card p {
+.card-wrapper > p {
   text-align: left;
   font-size: 20px;
   margin-left: 30px;
   padding: 10px;
 }
 
-.tasks li {
+/* .tasks li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .tasks ul li {
   font-size: 20px;
@@ -61,16 +61,53 @@
   padding: 15px;
 }
 
-ul#tasks-list {
+/* ul .item-list {
   max-width: 500px;
   padding: 0;
-}
-
-.checked {
-  color: whitesmoke;
-  background-color: gray;
-}
+} */
 
 ul li.hidden {
   display: none;
+}
+
+.item-list {
+  max-width: 500px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "todo"
+    "done"; */
+}
+
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-list .item {
+  background-color: #ccc;
+  /* grid-area: todo; */
+  /*grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1; */
+
+  /* grid-column-start: item;
+  grid-column-end: item-checked; */
+}
+
+.item-list .item.checked {
+  /*si trova nella seconda row*/
+  background-color: gray;
+  /* grid-area: done; */
+  order: 1;
+}
+.item-list .item.checked p {
+  text-decoration: line-through;
+  text-decoration-color: cadetblue;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 3px;
 }
