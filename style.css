@@ -99,6 +99,10 @@ ul li.hidden {
   grid-column-end: item-checked; */
 }
 
+.item-list .item button.done {
+  border: 1px solid gray;
+}
+
 .item-list .item.checked {
   /*si trova nella seconda row*/
   background-color: gray;
@@ -110,4 +114,9 @@ ul li.hidden {
   text-decoration-color: cadetblue;
   text-decoration-style: wavy;
   text-decoration-thickness: 3px;
+}
+
+.item-list .item.checked button.done {
+  background-color: gray;
+  border: 1px solid #fff;
 }

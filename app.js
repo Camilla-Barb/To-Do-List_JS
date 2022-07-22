@@ -1,12 +1,27 @@
 const toggleChecked = (e) => {
   const parent = e.currentTarget.parentNode;
-  // parent.remove();
+
   if (parent.classList.contains("checked")) {
     parent.classList.remove("checked");
   } else {
-    let inputText = document.querySelector(".myText").value;
-    parent.innerHTML = `<p>${inputText.value}</p><button class="restore">😃 Restore</button>`;
-    parent.addEventListener("click", () => parent.classList.toggle("checked"));
+    // inputText = inputText.value;
+    // console.log(inputText.value);
+    let inputText = document.querySelector(".myText");
+    // p è undefined
+    parent.innerHTML = `<p class="myString">${inputText.value}</p><button class="done"> ✔️ Restore</button>`;
+    let paragraph = document.querySelector(".myString");
+    paragraph.innerHTML = inputText.value;
+    parent.classList.add("checked");
+
+    // manca toggle al button
+    // let restoreBtn = document.querySelector("button.done");
+    // console.log(restoreBtn);
+    e.currentTarget.addEventListener("click", (e) =>
+      e.currentTarget.parentNode.classList.contains("checked")
+        ? e.currentTarget.classList.add("checked")
+        : e.currentTarget.classList.remove("checked")
+    );
+    console.log(e.currentTarget);
   }
 
   // if (e.currentTarget.classList.contains("checked")) {
@@ -28,7 +43,7 @@ const clickAdd = () => {
   } else {
     const newTask = document.createElement("li");
     newTask.classList.add("item");
-    newTask.innerHTML = `<p>${inputText.value}</p><button class="done">🙁 Done</button>`;
+    newTask.innerHTML = `<p class="myString">${inputText.value}</p><button class="done"> ❗️ Done</button>`;
     document.querySelector(".item-list").appendChild(newTask);
     newTask.querySelector("button").addEventListener("click", toggleChecked);
     inputText.value = "";
