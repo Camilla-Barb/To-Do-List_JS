@@ -1,30 +1,31 @@
-const toggleChecked = (e) => {
+const toggleChecked = (e, newTask) => {
   let parent = e.currentTarget.parentNode;
-  console.log(e.currentTarget.parentNode);
-  if (parent.classList.contains("checked")) {
+  let itemBtn = e.currentTarget;
+  if (newTask.classList.contains("checked")) {
     parent.classList.remove("checked");
+    itemBtn.innerHTML = `❗️ Done`;
   } else {
-    let inputText = document.querySelector(".myText");
+    parent.classList.add("checked");
+    // let inputText = document.querySelector(".myText");
     // p è undefined
-    parent.innerHTML = `<p class="text-item">${inputText.value}</p><button class="checked"> ✔️ Restore</button>`;
+    itemBtn.innerHTML = `✔️ Restore`;
     // let itemText = document.querySelector(".text-item");
     // itemText = inputText.value;
-    parent.classList.add("checked");
 
     // manca toggle al button
     // let restoreBtn = document.querySelector("button.done");
     // console.log(restoreBtn);
 
-    const itemBtn = e.currentTarget;
-    console.log(e.currentTarget);
-    itemBtn.addEventListener("click", () => {
-      if (itemBtn.classList.contains("checked")) {
-        parent.classList.remove("checked");
-      } else {
-        parent.classList.add("checked");
-        console.log("add");
-      }
-    });
+    // const itemBtn = e.currentTarget;
+    // console.log(e.currentTarget);
+    // itemBtn.addEventListener("click", () => {
+    //   if (itemBtn.classList.contains("checked")) {
+    //     parent.classList.remove("checked");
+    //   } else {
+    //     parent.classList.add("checked");
+    //     console.log("add");
+    //   }
+    // });
   }
 };
 
@@ -55,7 +56,9 @@ const clickAdd = () => {
     newTask.classList.add("item");
     newTask.innerHTML = `<p class="text-item">${inputText.value}</p><button class="done"> ❗️ Done</button>`;
     document.querySelector(".item-list").appendChild(newTask);
-    newTask.querySelector("button").addEventListener("click", toggleChecked);
+    newTask
+      .querySelector("button")
+      .addEventListener("click", (e) => toggleChecked(e, newTask));
     inputText.value = "";
   }
 };
