@@ -5,7 +5,7 @@
 }
 
 .card-wrapper {
-  color: whitesmoke;
+  color: #000;
   background-color: cadetblue;
   text-align: center;
   max-width: 500px;
@@ -57,7 +57,7 @@
 .tasks ul li {
   font-size: 20px;
   list-style: none;
-  background-color: #ccc;
+  background-color: #fff;
   padding: 15px;
 }
 
@@ -89,7 +89,7 @@ ul li.hidden {
 }
 
 .item-list .item {
-  background-color: #ccc;
+  background-color: #fff;
   /* grid-area: todo; */
   /*grid-column-start: 1;
   grid-column-end: 2;
@@ -100,12 +100,12 @@ ul li.hidden {
 }
 
 .item-list .item button.done {
-  border: 1px solid gray;
+  border: 1px solid #ccc;
 }
 
 .item-list .item.checked {
   /*si trova nella seconda row*/
-  background-color: gray;
+  background-color: #ccc;
   /* grid-area: done; */
   order: 1;
 }
@@ -118,5 +118,5 @@ ul li.hidden {
 
 .item-list .item.checked button.done {
   background-color: gray;
-  border: 1px solid #fff;
+  border: 1px solid gray;
 }
