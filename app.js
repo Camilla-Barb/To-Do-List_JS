@@ -1,40 +1,50 @@
 const toggleChecked = (e) => {
-  const parent = e.currentTarget.parentNode;
-
+  let parent = e.currentTarget.parentNode;
+  console.log(e.currentTarget.parentNode);
   if (parent.classList.contains("checked")) {
     parent.classList.remove("checked");
   } else {
-    // inputText = inputText.value;
-    // console.log(inputText.value);
     let inputText = document.querySelector(".myText");
     // p è undefined
-    parent.innerHTML = `<p class="myString">${inputText.value}</p><button class="done"> ✔️ Restore</button>`;
-    let paragraph = document.querySelector(".myString");
-    paragraph.innerHTML = inputText.value;
+    parent.innerHTML = `<p class="text-item">${inputText.value}</p><button class="checked"> ✔️ Restore</button>`;
+    // let itemText = document.querySelector(".text-item");
+    // itemText = inputText.value;
     parent.classList.add("checked");
 
     // manca toggle al button
     // let restoreBtn = document.querySelector("button.done");
     // console.log(restoreBtn);
-    e.currentTarget.addEventListener("click", (e) =>
-      e.currentTarget.parentNode.classList.contains("checked")
-        ? e.currentTarget.classList.add("checked")
-        : e.currentTarget.classList.remove("checked")
-    );
-    console.log(e.currentTarget);
-  }
 
-  // if (e.currentTarget.classList.contains("checked")) {
-  //   const deleteTask = document.querySelectorAll("button.delete");
-  //   for (let i = 0; i < deleteTask.length; i++) {
-  //     deleteTask[i].addEventListener("click", function () {
-  //       this.parentNode.remove();
-  //     });
-  //   }
-  // } else {
-  //   e.currentTarget.classList.add("checked");
-  // }
+    const itemBtn = e.currentTarget;
+    console.log(e.currentTarget);
+    itemBtn.addEventListener("click", () => {
+      if (itemBtn.classList.contains("checked")) {
+        parent.classList.remove("checked");
+      } else {
+        parent.classList.add("checked");
+        console.log("add");
+      }
+    });
+  }
 };
+
+// e.currentTarget.addEventListener("click", (e) =>
+//   e.currentTarget.parentNode.classList.contains("checked")
+//     ? e.currentTarget.classList.remove("checked")
+//     : e.currentTarget.classList.add("checked")
+// );
+// console.log(e.currentTarget);
+
+// if (e.currentTarget.classList.contains("checked")) {
+//   const deleteTask = document.querySelectorAll("button.delete");
+//   for (let i = 0; i < deleteTask.length; i++) {
+//     deleteTask[i].addEventListener("click", function () {
+//       this.parentNode.remove();
+//     });
+//   }
+// } else {
+//   e.currentTarget.classList.add("checked");
+// }
 
 const clickAdd = () => {
   let inputText = document.querySelector(".myText");
@@ -43,7 +53,7 @@ const clickAdd = () => {
   } else {
     const newTask = document.createElement("li");
     newTask.classList.add("item");
-    newTask.innerHTML = `<p class="myString">${inputText.value}</p><button class="done"> ❗️ Done</button>`;
+    newTask.innerHTML = `<p class="text-item">${inputText.value}</p><button class="done"> ❗️ Done</button>`;
     document.querySelector(".item-list").appendChild(newTask);
     newTask.querySelector("button").addEventListener("click", toggleChecked);
     inputText.value = "";
