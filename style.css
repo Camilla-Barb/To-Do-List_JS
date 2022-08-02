@@ -117,6 +117,10 @@ ul li.hidden {
 }
 
 .item-list .item.checked button.done {
-  background-color: gray;
+  /* background-color: gray; */
   border: 1px solid gray;
+}
+
+.item-list .item.delete {
+  display: none;
 }

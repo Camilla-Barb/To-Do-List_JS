@@ -7,6 +7,10 @@ const toggleChecked = (e, newTask) => {
   } else {
     parent.classList.add("checked");
     itemBtn.innerHTML = `✔️ Restore`;
+    const btnDelete = document.createElement("button");
+    btnDelete.innerHTML = `<button> ❌ Delete </button>`;
+    itemBtn.appendChild(btnDelete);
+    btnDelete.addEventListener("click", () => parent.classList.add("delete"));
   }
 };
 
